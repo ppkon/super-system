@@ -9,7 +9,10 @@
             <!-- 右侧 -->
             <el-container>
                 <!-- 右侧头 -->
-                <el-header>Header</el-header>
+                <el-header>
+                  <!-- 头部组件 -->
+                  <Top></Top>
+                </el-header>
 
                 <!-- 右侧中间 -->
                 <el-main>
@@ -18,7 +21,10 @@
                 </el-main>
 
                 <!-- 右侧尾部 -->
-                <el-footer>Footer</el-footer>
+                <el-footer>
+                  <!-- 尾部组件 -->
+                  <Bottom></Bottom>
+                </el-footer>
             </el-container>
         </el-container>
     </div>
@@ -27,9 +33,16 @@
 <script>
 // 引入导航组件
 import Nav from '@/components/Nav/Nav.vue';
+// 引入头部组件
+import Top from '@/components/Top/Top.vue';
+// 引入尾部组件
+import Bottom from '@/components/Bottom/Bottom.vue';
+
 export default {
   components:{
-    Nav
+    Nav,
+    Top,
+    Bottom
   }
 };
 </script>

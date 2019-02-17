@@ -37,8 +37,8 @@
 export default {
     data () {
         return {
-            username: "李寻欢",
-            avatarUrl: 'http://127.0.0.1:8080/avatar.jpg'
+            username: "李鞠诺",
+            avatarUrl:"http://172.20.10.6:8080/avatar.jpg"
         }
     }
 }
@@ -57,6 +57,7 @@ export default {
             text-align: right;
             .username {
                font-weight: 600;
+               font-size: 16px;
             }
             .avatar {
                 width: 52px;
