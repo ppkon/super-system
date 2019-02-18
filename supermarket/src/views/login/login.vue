@@ -83,7 +83,8 @@ export default {
       loginForm: {
         username: "",
         password: "",
-        checkPwd: ""
+        checkPwd: "",
+        userGroup:""
       },
       // 验证的规则（一份数据）
       rules: {
@@ -117,14 +118,14 @@ export default {
           // 后续就可以把收集的账号和密码 一起发送给后端 验证用户名和密码的正确性。
           // 收集账号和密码
           let params = {
-            username: this.loginForm.username,
-            password: this.loginForm.password
+            username: this.loginForm.username, //账号
+            password: this.loginForm.password,  //密码
           };
+          // console.log(params)
 
           // 发送请求 把参数发给后端（把用户名和密码发给后端 验证是否正确）
-          //  console.log(params)
           // 直接跳转到后端主页
-          this.$router.push("/");
+          this.$router.push("/accountmanage");
         } else {
           // 否则就是false
           alert("前端验证失败 不能提交给后端！");

@@ -38,7 +38,7 @@ export default {
     data () {
         return {
             username: "李鞠诺",
-            avatarUrl:"http://172.20.10.6:8080/avatar.jpg"
+            avatarUrl:"http://localhost:8080/avatar.jpg"
         }
     }
 }

@@ -8,7 +8,7 @@
             <div class="text item">
                  <!-- 提示信息 -->
                  <el-alert
-                    title="商品总数: 500, 已销售总金额: 998.00, 库存商品总价: 9800.00"
+                    title="商品总数: 5000, 已销售总金额:100000, 库存商品总价:1000000"
                     type="info"
                     show-icon>
                 </el-alert>

@@ -11,12 +11,14 @@ import router from './router'
 // 引入公用样式
 import '@/styles/common.less'
 
+
 // 注册(使用)elementui
 Vue.use(ElementUI);
 // 阻止生产提示
 Vue.config.productionTip = false
 // 创建vue实例对象 挂载dom 把路由 和app顶级组件传入 渲染进入dom容器
 new Vue({
+  el:'#app',
   router,
   render: h => h(App)
-}).$mount('#app')
+})
