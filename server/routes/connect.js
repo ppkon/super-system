@@ -9,6 +9,9 @@ const connection = mysql.createConnection({
     database : 'smms'  // 数据库的名字
 });
 // 执行连接方法
-connection.connect();
+connection.connect(()=>{
+    console.log('数据连接成功');
+    
+});
 // 把链接对象暴露出去
 module.exports=connection;

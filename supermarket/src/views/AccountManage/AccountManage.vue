@@ -94,40 +94,48 @@ export default {
     handleSelectionChange(val) {
       this.multipleSelection = val;
     },
+    // 修改账号信息
     handleEdit(id) {
-      alert("1");
-      console.log(id);
+      // 弹出模态框
     },
+    // 删除账号
     handleDelete(id) {
-    // 弹出确认框
-        this.$confirm("你确定要删除吗？", "删除提示", {
-          confirmButtonText: "确定",
-          cancelButtonText: "取消",
-          type: "warning"
-        })
-      // 发送ajax请求 把id传给后端
-      this.axios
-        .get(`http://127.0.0.1:666/account/accountdel?id=${id}`)
-        .then(response => {
-          // 接收后端返回的错误码 和 错误信息
-          let { error_code, reason } = response.data;
-          // 判断错误码
-          if(error_code === 0){
-            // 弹出删除成功的提示
-            this.$message({
-              type:'sucess',
-              message:reason
-            })
-            // 输出列表 (再次调用请求所有的用户账号的函数 由于之前已经删除 所有再次请求 得到删除后的数据)
-            this.getAccountList();
-          }else{
-            // 弹出删除失败的提示
-            this.$message.error(reason)
-          }
-        })
-        .catch(err => {
-          console.log(err);
+      // 弹出确认框
+      this.$confirm("你确定要删除吗？", "删除提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+      .then(() => {
+        // 发送ajax请求 把id传给后端
+        this.axios.get(`http://127.0.0.1:666/account/accountdel?id=${id}`)
+          .then(response => {
+            // 接收后端返回的错误码 和 错误信息
+            let { error_code, reason } = response.data;
+            // 判断错误码
+            if (error_code === 0) {
+              // 弹出删除成功的提示
+              this.$message({
+                type: "success",
+                message: reason
+              });
+              // 输出列表 (再次调用请求所有的用户账号的函数 由于之前已经删除 所有再次请求 得到删除后的数据)
+              this.getAccountList();
+            } else {
+              // 弹出删除失败的提示
+              this.$message.error(reason);
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      })
+      .catch(() => {
+        this.$message({
+          type:'info',
+          message:'已取消删除'
         });
+      });
     }
   },
   // 过滤器
