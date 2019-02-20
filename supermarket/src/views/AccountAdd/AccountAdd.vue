@@ -41,7 +41,6 @@
 // 引入qs库
 import qs from 'qs';
 
-
 export default {
   data() {
     // 自定义密码的验证
@@ -107,33 +106,37 @@ export default {
             password: this.accountAddForm.password,
             usergroup: this.accountAddForm.userGroup
           };
-        // console.log(params)
+          
+        console.log(params)
+        console.log(this.axios)
           // 使用axios发送数据给后端
           this.axios.post('http://127.0.0.1:666/account/accountadd', qs.stringify(params))
             .then(response => {
-              // 接收后端返回的错误码 和 提示信息
-              let { error_code,  reason } = response.data;
-
+              console.log(response.data)
+              // 接收后端返回的错误码 和 错误信息
+              // let error_code=response.data.error_code;
+              // let reason=response.data.reason;
+              let {error_code,reason}=response.data;
               // 根据后端响应的数据判断
-              if (error_code === 0) {
+              if(error_code === 0){
                 // 弹出成功的提示
                 this.$message({
-                  type: 'success',
-                  message: reason
-                });
-
-                this.$router.push('/accountmanage') // 跳转到账号管理列表,内置的对象
-              } else {
+                  type:'success',
+                  message:reason
+                })
+                // 跳转到账号管理列表
+                this.$router.push('/accountmanage')
+              }else{
                 // 弹出失败的提示
-                this.$message.error(reason);
+                this.$message.error(reason)
               }
             })
-            .catch(err => {
+            .catch(err=>{
               console.log(err)
             })
-        } else {
-          // 否则就是false
-          return false;
+              }else{
+                alert('11')
+                return false;
         }
       });
     },

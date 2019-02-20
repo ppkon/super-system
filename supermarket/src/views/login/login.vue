@@ -125,7 +125,7 @@ export default {
 
           // 发送请求 把参数发给后端（把用户名和密码发给后端 验证是否正确）
           // 直接跳转到后端主页
-          this.$router.push("/accountmanage");
+          this.$router.push("/");
         } else {
           // 否则就是false
           alert("前端验证失败 不能提交给后端！");
